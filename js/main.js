@@ -164,7 +164,6 @@ async function sendForm() {
                 const distribution = genreDistributionOverTime(
                     prediction, duration
                 );
-                pills(URL.createObjectURL(file), distribution);
                 drawPieChart('#piechart', distribution, function() {
                     return $('audio').get(0).currentTime;
                 });
