@@ -236,23 +236,6 @@ pills = function(audio, distribution) {
                 } catch (error) {
                 }
             }
-        },
-        draw: function() {
-            var j, len, particle, ref, results;
-            this.globalCompositeOperation = 'lighter';
-            ref = this.particles;
-            results = [];
-            for (j = 0, len = ref.length; j < len; j++) {
-                particle = ref[j];
-                if (particle.y < -particle.size * particle.level * particle.scale * 2) {
-                    particle.reset();
-                    particle.x = random(this.width);
-                    particle.y = this.height + particle.size * particle.scale * particle.level;
-                }
-                particle.move();
-                results.push();
-            }
-            return results;
         }
     });
 
