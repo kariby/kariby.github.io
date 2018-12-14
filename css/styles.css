@@ -1,6 +1,6 @@
 html, body {
     font-family: "Lato", sans-serif;
-    background: #FFFFFF;
+    background: #ffffff;
     overflow: hidden;
 }
 
@@ -23,6 +23,10 @@ html, body {
 }
 
 #container:before {
+    background-size: 100%;
+    background-image: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 20%, #000000 95%);
+    background-image: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 20%, #000000 95%);
+    background-image: radial-gradient(ellipse cover at center, rgba(0, 0, 0, 0) 20%, #000000 95%);
     position: absolute;
     content: "";
     z-index: 0;
@@ -47,7 +51,7 @@ html, body {
 .message {
     width: 700px;
     margin: auto;
-    color: white;
+    color: black;
     text-align: justify;
 }
 
