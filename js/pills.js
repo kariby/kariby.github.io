@@ -250,7 +250,7 @@ pills = function(audio, distribution) {
                     particle.y = this.height + particle.size * particle.scale * particle.level;
                 }
                 particle.move();
-                
+                results.push();
             }
             return results;
         }
