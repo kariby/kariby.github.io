@@ -1,24 +1,14 @@
 html, body {
     background: #FFFFFF;
-    overflow: hidden;
 }
 
 #container:before {
-    background-size: 100%;
-    position: absolute;
-    content: "";
-    z-index: 0;
-    opacity: 0.9;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
 }
 
 .message {
     width: 700px;
     margin: auto;
-    color: white;
+    color: black;
     text-align: justify;
 }
 
@@ -44,6 +34,10 @@ audio {
 }
 
 #upload div {
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 5%;
+    overflow: hidden;
 }
 
 #upload img {
