@@ -165,7 +165,6 @@ async function sendForm() {
                     prediction, duration
                 );
                 pills(URL.createObjectURL(file), distribution);
-				$('pills').hide();
                 drawPieChart('#piechart', distribution, function() {
                     return $('audio').get(0).currentTime;
                 });
