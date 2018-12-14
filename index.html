@@ -17,14 +17,20 @@
 </head>
 <body>
     <div id="container">
+        <div id="message-upload" class="message">
+        </div>
         <div id="upload">
             <form enctype="multipart/form-data">
                 <div>
-                    <img src="img/cloud-upload.png">
                     <input name="filearg" type="file">
                 </div>
             </form>
         </div>
+        
+        <div id="message-wave" class="message">
+        </div>
+        <div id="wave" class="modal"></div>
+        <div id="pills"></div>
         
         <div id="piechart-container">
             <canvas id="piechart" height="450" width="400"></canvas>
