@@ -1,19 +1,62 @@
 html, body {
+    font-family: "Lato", sans-serif;
     background: #FFFFFF;
+    overflow: hidden;
+}
+
+#logo {
+    transition: 1000ms;
+}
+
+.logo-small {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.logo-big {
+    display: block;
+    width: 600px;
+    height: 150px;
+    margin: 50px auto;
 }
 
 #container:before {
+    position: absolute;
+    content: "";
+    z-index: 0;
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#container:after {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
 
 .message {
     width: 700px;
     margin: auto;
-    color: black;
+    color: white;
     text-align: justify;
 }
 
 .message p {
     margin: 8pt auto;
+}
+
+#message-wave {
+    display: none;
 }
 
 audio {
