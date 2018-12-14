@@ -31,10 +31,10 @@ SOFTWARE.
  */
 
 pills = function(audio, distribution) {
-    var COLOR_STEP = 25;
-    var NUM_PARTICLES = 150;
-    var NUM_PILLS_PER_GENRE = 20;
-    var NUM_BANDS = 128;
+    var COLOR_STEP = 0;
+    var NUM_PARTICLES = 0;
+    var NUM_PILLS_PER_GENRE = 0;
+    var NUM_BANDS = 0;
     var SMOOTHING = 0.5;
     var SCALE_MIN = 5.0;
     var SCALE_MAX = 80.0;
@@ -236,6 +236,23 @@ pills = function(audio, distribution) {
                 } catch (error) {
                 }
             }
+        },
+        draw: function() {
+            var j, len, particle, ref, results;
+            this.globalCompositeOperation = 'lighter';
+            ref = this.particles;
+            results = [];
+            for (j = 0, len = ref.length; j < len; j++) {
+                particle = ref[j];
+                if (particle.y < -particle.size * particle.level * particle.scale * 2) {
+                    particle.reset();
+                    particle.x = random(this.width);
+                    particle.y = this.height + particle.size * particle.scale * particle.level;
+                }
+                particle.move();
+                results.push(particle.draw(this));
+            }
+            return results;
         }
     });
 
