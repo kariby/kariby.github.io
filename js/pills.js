@@ -31,10 +31,10 @@ SOFTWARE.
  */
 
 pills = function(audio, distribution) {
-    var COLOR_STEP = 0;
-    var NUM_PARTICLES = 0;
-    var NUM_PILLS_PER_GENRE = 0;
-    var NUM_BANDS = 0;
+    var COLOR_STEP = 25;
+    var NUM_PARTICLES = 150;
+    var NUM_PILLS_PER_GENRE = 20;
+    var NUM_BANDS = 128;
     var SMOOTHING = 0.5;
     var SCALE_MIN = 5.0;
     var SCALE_MAX = 80.0;
@@ -249,6 +249,8 @@ pills = function(audio, distribution) {
                     particle.x = random(this.width);
                     particle.y = this.height + particle.size * particle.scale * particle.level;
                 }
+                particle.move();
+                results.push(particle.draw(this));
             }
             return results;
         }
