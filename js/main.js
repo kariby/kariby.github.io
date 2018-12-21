@@ -148,7 +148,7 @@ async function sendForm() {
     $('#upload').fadeOut(300, function() {
         $('#message-upload').hide();
         $('#message-wave').show();
-        wave.start();
+        //wave.start();
         $('body').addClass('loading');
 
         const file = $('#upload input')[0].files[0];
