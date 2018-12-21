@@ -34,7 +34,6 @@ html, body {
 }
 
 #container:after {
-    background: url("../img/noise.png");
     position: absolute;
     content: "";
     z-index: 1;
@@ -151,7 +150,7 @@ body.loading .modal {
 }
 
 #legend ul {
-    color: white;
+    color: black;
     font-size: 20pt;
 }
 
