@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>DeepSound</title>
+    <title>Project</title>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
     <script src="js/genres.js"></script>
@@ -16,11 +16,9 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <img src="img/deepsound.png" alt="DeepSound" id="logo" class="logo-big">
     <div id="container">
         <div id="message-upload" class="message">
-            <p>This is a demo of music genre recognition using a convolutional neural network running inside your browser. To start, click the button below and upload a song. A visualization will be shown, presenting the network's belief about the genre of the song at any given point in time.</p>
-            <p>This app has been tested on Google Chrome. It most likely won't work on other browsers.</p>
+            <p>Загрузите файл в формате .mp3.</p>
         </div>
         <div id="upload">
             <form enctype="multipart/form-data">
@@ -31,7 +29,7 @@
             </form>
         </div>
         <div id="message-wave" class="message">
-            <p>Please wait while your song is being processed. This may take a minute or two depending on the length of the song.</p>
+            <p>Пожалуйста, подождите.</p>
         </div>
         <div id="wave" class="modal"></div>
         <div id="pills"></div>
