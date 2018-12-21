@@ -249,8 +249,6 @@ pills = function(audio, distribution) {
                     particle.x = random(this.width);
                     particle.y = this.height + particle.size * particle.scale * particle.level;
                 }
-                particle.move();
-                results.push(particle.draw(this));
             }
             return results;
         }
