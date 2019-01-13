@@ -53,11 +53,12 @@ function smooth(prediction) {
     return newPrediction;
 }
 
-async function process(audio, sampleRate) {
+async function process(audio, sampleRate) {                 //получение predictions
     const spec = await preprocess([audio, sampleRate]);
     const input = specToInputTensor(event.data);
     const model = await modelPromise;
     const predictionTensor = tf.tidy(function() {
+        //console.log(model.predict(input));
         return model.predict(input);
     });
     const predictionArray = await predictionTensor.data();
@@ -117,6 +118,7 @@ function decodeAudio(file) {
 
 function genreDistributionOverTime(prediction, duration) {
     const dt = duration / prediction.length * GENRES.length;
+    //console.log(dt);
     var distribution = [];
     for(var i = 0; i < prediction.length / GENRES.length; ++i) {
         const from = i * GENRES.length;
@@ -124,15 +126,37 @@ function genreDistributionOverTime(prediction, duration) {
         distribution.push(
             [(i + 1) * dt, prediction.slice(from, to).reduce(function(acc, cur, j) {
                 acc[GENRES[j]] = cur;
+                //console.log('acc' + acc);
                 return acc;
             }, {})]
         );
     }
+    //console.log(distribution[0]);
     return distribution;
 }
 
+function generalPrediction(prediction) {
+    var res = new Array(GENRES.length).fill(0);
+    var one_prediction = [];
+    var count = prediction.length / GENRES.length;
+
+    for(var i = 0; i < count; ++i) {
+      const from = i * GENRES.length;
+      const to = from + GENRES.length;
+
+      one_prediction = prediction.slice(from, to);
+
+      for(var j = 0; j < GENRES.length; j++) {
+          res[j] += one_prediction[j];
+      }
+    }
+    res = res.map(function(x) { return x / count; });
+
+    return res;
+}
+
 async function sendForm() {
-    var wave = new SiriWave({
+    /*var wave = new SiriWave({
         width: window.innerWidth,
         height: window.innerHeight / 2,
         speed: 0.06,
@@ -143,11 +167,11 @@ async function sendForm() {
         color3: getRandColor(3),
         color4: getRandColor(3),
         color5: getRandColor(3)
-    });
+    });*/
 
     $('#upload').fadeOut(300, function() {
-        $('#message-upload').hide();
-        $('#message-wave').show();
+        //$('#message-upload').hide();
+        $('#message').show();
         //wave.start();
         $('body').addClass('loading');
 
@@ -155,16 +179,28 @@ async function sendForm() {
         decodeAudio(file).then(function(audioBuffer) {
             const duration = audioBuffer.duration;
             const channel = audioBuffer.getChannelData(0);
+            var predictions = [];
             process(channel, audioBuffer.sampleRate).then(function(prediction) {
-                wave.stop();
-                $('#message-wave').hide();
+                predictions = generalPrediction(prediction).map(function(x) { return (x * 100).toFixed(2) + " %";});
+
+                $('table tr').each(function(index, value) {
+                    $(this).find('#prd span').text(predictions[index]);
+                    //$('span', this).text('1');
+                });
+
+              //wave.stop();
+                $('#message').hide();
                 $('body').removeClass('loading');
-                $('.logo-big').removeClass('logo-big').addClass('logo-small');
+                //$('.logo-big').removeClass('logo-big').addClass('logo-small');
 
                 const distribution = genreDistributionOverTime(
                     prediction, duration
                 );
+
+                console.log(URL.createObjectURL(file));
                 pills(URL.createObjectURL(file), distribution);
+                console.log('after-pills');
+
                 drawPieChart('#piechart', distribution, function() {
                     return $('audio').get(0).currentTime;
                 });
