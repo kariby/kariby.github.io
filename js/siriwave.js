@@ -73,7 +73,7 @@ function SiriWave(opt) {
     // Start
 
     if (opt.autostart) {
-        //this.start();
+        this.start();
     }
 }
 
@@ -136,7 +136,7 @@ SiriWave.prototype._draw = function () {
 SiriWave.prototype.start = function () {
     this.phase = 0;
     this.run = true;
-    //this._draw();
+    this._draw();
 };
 
 SiriWave.prototype.stop = function () {
