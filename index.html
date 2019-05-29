@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Project</title>
+    <title>DeepSound</title>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
     <script src="js/genres.js"></script>
@@ -30,6 +30,10 @@
                 </div>
             </form>
         </div>
+        <div id="message" class="message">
+          <h1 style="font-size: 270%;">Идет загрузка...</h1>
+            <!--<p>Please wait while your song is being processed. This may take a minute or two depending on the length of the song.</p>-->
+        </div>
         <!--<div id="wave" class="modal"></div>-->
         <!--<div id="pills"></div>-->
         <div id="piechart-container">
@@ -49,43 +53,53 @@
                 </ul>-->
                 <table>
                   <tr>
-                    <td id="clr"><span style="background: #0033cc;">Blues</span></td>
-                    <td id="prd"><span style="color: #0033cc;">Blues</span></td>
+                    <td id="clr"><span style="background: #0033cc;"></span></td>
+                    <td>Blues</td>
+                    <td id="prd"><span style="color: #0033cc;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #6600ff;">Classical</span></td>
+                    <td id="clr"><span style="background: #6600ff;"></span></td>
+                    <td>Classical</td>
                     <td id="prd"><span style="color: #6600ff;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #cc6600;">Country</span></td>
+                    <td id="clr"><span style="background: #cc6600;"></span></td>
+                    <td>Country</td>
                     <td id="prd"><span style="color: #cc6600;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #ff66cc;">Disco</span></td>
+                    <td id="clr"><span style="background: #ff66cc;"></span></td>
+                    <td>Disco</td>
                     <td id="prd"><span style="color: #ff66cc;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #800080;">HipHop</span></td>
+                    <td id="clr"><span style="background: #800080;"></span></td>
+                    <td>HipHop</td>
                     <td id="prd"><span style="color: #800080;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #cccc00;">Jazz</span></td>
+                    <td id="clr"><span style="background: #cccc00;"></span></td>
+                    <td>Jazz</td>
                     <td id="prd"><span style="color: #cccc00;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #999966;">Metal</span></td>
+                    <td id="clr"><span style="background: #999966;"></span></td>
+                    <td>Metal</td>
                     <td id="prd"><span style="color: #999966;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #00cc66;">Pop</span></td>
+                    <td id="clr"><span style="background: #00cc66;"></span></td>
+                    <td>Pop</td>
                     <td id="prd"><span style="color: #00cc66;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #ffcc66;">Reggae</span></td>
+                    <td id="clr"><span style="background: #ffcc66;"></span></td>
+                    <td>Reggae</td>
                     <td id="prd"><span style="color: #ffcc66;"></span></td>
                   </tr>
                   <tr>
-                    <td id="clr"><span style="background: #cc0000;">Rock</span></td>
+                    <td id="clr"><span style="background: #cc0000;"></span></td>
+                    <td>Rock</td>
                     <td id="prd"><span style="color: #cc0000;"></span></td>
                   </tr>
                 </table>
