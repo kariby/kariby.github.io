@@ -38,7 +38,6 @@ html, body {
 }
 
 #container:after {
-    background: url("../img/noise.png");
     position: absolute;
     content: "";
     z-index: 1;
