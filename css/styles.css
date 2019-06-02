@@ -151,6 +151,7 @@ body.loading .modal {
     float: right;
     margin-top: 20%;
     font-size: small;
+    font-family: Times New Roman;
 }
 
 /*#legend ul {
@@ -161,6 +162,7 @@ body.loading .modal {
 #legend table {
     color: black;
     font-size: small;
+    font-family: Times New Roman;
 }
 
 /*#legend ul li span {
