@@ -149,7 +149,8 @@ body.loading .modal {
 
 #legend {
     float: right;
-    margin-top: 15%;
+    margin-top: 20%;
+    font-size: small;
 }
 
 /*#legend ul {
@@ -159,6 +160,7 @@ body.loading .modal {
 
 #legend table {
     color: black;
+    font-size: small;
 }
 
 /*#legend ul li span {
